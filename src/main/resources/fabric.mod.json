@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "id": "market_day",
+  "version": "${version}",
+  "name": "Market Day",
+  "description": "",
+  "authors": [],
+  "contact": {},
+  "license": "All-Rights-Reserved",
+  "icon": "assets/market_day/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "fabric-datagen": [
+      "org.arnova.market_day.client.Market_dayDataGenerator"
+    ],
+    "client": [
+      "org.arnova.market_day.client.Market_dayClient"
+    ],
+    "main": [
+      "org.arnova.market_day.MarketDay"
+    ]
+  },
+  "mixins": [
+    "market_day.mixins.json",
+    {
+      "config": "market_day.client.mixins.json",
+      "environment": "client"
+    }
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric-language-kotlin": ">=${kotlin_loader_version}",
+    "fabric-api": "*",
+    "minecraft": "${minecraft_version}"
+  }
+}
