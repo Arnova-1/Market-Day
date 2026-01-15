@@ -5,6 +5,7 @@ import net.fabricmc.fabric.api.event.player.UseEntityCallback
 import net.minecraft.entity.passive.VillagerEntity
 import net.minecraft.util.ActionResult
 import org.arnova.market_day.utils.MarketTime.isMarketDay
+import org.arnova.market_day.utils.getClosedMarketMessage
 
 class MarketDay : ModInitializer {
 
@@ -14,6 +15,9 @@ class MarketDay : ModInitializer {
                 return@register ActionResult.PASS
             }
             if (entity is VillagerEntity && isMarketDay(world)) {
+                player.sendMessage(
+                    getClosedMarketMessage(entity),
+                    true)
                 ActionResult.FAIL
             } else
                 ActionResult.PASS

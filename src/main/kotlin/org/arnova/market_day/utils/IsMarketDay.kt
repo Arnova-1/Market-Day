@@ -16,9 +16,6 @@ object MarketTime {
                 lastDay = currentDay
             }
         }
-
-        println("Day $marketDayCounter")
-
         return marketDayCounter % 3 != 0
     }
 }
